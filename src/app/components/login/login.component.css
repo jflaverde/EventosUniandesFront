@@ -1,0 +1,27 @@
+.login-page {
+  height: 100vh;
+}
+
+@media(max-width: 769px) {
+
+  .alert,
+  .login-box-body {
+    max-width: 70% !important;
+  }
+}
+
+@media(max-width: 540px) {
+
+  .alert,
+  .login-box-body {
+    max-width: 80% !important;
+  }
+}
+
+@media(max-width: 470px) {
+
+  .alert,
+  .login-box-body {
+    max-width: 96% !important;
+  }
+}
