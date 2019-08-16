@@ -1,0 +1,51 @@
+<div class="text-center pt-2">
+  <h4><b>EVENTO</b></h4>
+  <hr>
+</div>
+  <form name="" class="evento" [formGroup]="registerForm">
+      <div class="form-group">
+        <label for="nombre">Nombre: </label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre" value="{{evento.nombre}}">
+      </div>
+      <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <select id="categorias" [(ngModel)]="evento.categoria" class="form-control input-sm" formControlName="categoria" #categoriaSelect>
+                    <option *ngFor="let categoria_item of categorias" [value]="categoria_item.id">
+                      {{categoria_item?.nombre}}
+                    </option>
+                  </select>
+        </div>
+        <div class="form-group">
+            <label for="lugar">Lugar:</label>
+            <input type="text" class="form-control" id="lugar" formControlName="lugar" value="{{evento.lugar}}">
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" class="form-control" id="direccion" formControlName="direccion" value="{{evento.direccion}}">
+        </div>
+        <div class="form-group">
+         <label for="fechaInicio">Fecha inicio</label>
+         <input type="date" name="bday" max="3000-12-31"
+                min="1000-01-01" class="form-control" id="fechaInicio" formControlName="fechaInicio" value="{{evento.fechaInicio}}">
+        </div>
+        <div class="form-group">
+         <label for="fechaFin">Fecha fin</label>
+         <input type="date" name="bday" max="3000-12-31"
+                min="1000-01-01" class="form-control" id="fechaFin" formControlName="fechaFin" value="{{evento.fechaFin}}">
+        </div>
+                <!-- Default unchecked -->
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline1" name="presencial" formControlName="presencial" value="True">
+          <label class="custom-control-label" for="defaultInline1">Presencial</label>
+        </div>
+
+        <!-- Default inline 2-->
+        <div class="custom-control custom-radio custom-control-inline mx-5 mt-2">
+          <input type="radio" class="custom-control-input" id="defaultInline2" name="presencial" formControlName="presencial" value="False">
+          <label class="custom-control-label" for="defaultInline2">Virtual</label>
+        </div>
+        <div class="form-group text-center">
+          <button *ngIf="!edit" type="button" class="btn btn-success" type="submit" (click)="editar()"><i class="far fa-save"></i><span class="mx-2">Guardar</span></button>
+          <button type="button" class="btn btn-danger mx-5"  (click)="goBack()"><i class="fas fa-times"></i><span class="mx-2">Cancelar</span></button>
+        </div>
+    </form>
